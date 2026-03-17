@@ -1,0 +1,17 @@
+Column Name	                  Data Type	        Description
+referral_id	                  String	          Unique referral ID
+referral_source	              String	          Source of referral
+referral_source_category	    String	          Online/Offline/Lead
+referral_at	                  Datetime	        Referral creation time
+referrer_id	                  String	          Referrer user ID
+name	                        String	          Referrer name
+phone_number	                String	          Referrer phone
+referee_name	                String	          Referred user
+referee_phone	                String	          Referee phone
+transaction_id	              String	          Transaction ID
+transaction_status	          String	          Payment status
+transaction_at	              Datetime	        Transaction time
+transaction_location	        String	          Location
+transaction_type	            String	          Type of transaction
+updated_at	                  Datetime	        Last update
+is_business_logic_valid	      Boolean	          Valid or fraud
