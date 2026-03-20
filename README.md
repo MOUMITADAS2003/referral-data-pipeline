@@ -27,14 +27,59 @@ referral-data-pipeline
 
 ---
 
-## ⚙️ Workflow
+## ⚙️ Pipeline Workflow
 
-1. Load data from CSV files
-2. Clean and preprocess data
-3. Join datasets
-4. Create derived features
-5. Apply business logic validation
-6. Generate final report
+The data pipeline follows a structured workflow:
+
+### 1. Data Loading
+
+* Load all CSV files from the `data/` folder using Pandas.
+
+### 2. Data Cleaning
+
+* Remove duplicate records
+* Convert timestamp columns to datetime
+* Handle missing values
+
+### 3. Data Processing
+
+* Join multiple tables:
+
+  * user_referrals
+  * user_logs
+  * referral_rewards
+  * user_referral_statuses
+  * paid_transactions
+
+### 4. Feature Engineering
+
+* Create new column:
+
+  * `referral_source_category`
+
+Logic:
+
+* User Sign Up → Online
+* Draft Transaction → Offline
+* Lead → From lead_logs
+
+### 5. Business Logic Validation
+
+* Create:
+
+  * `is_business_logic_valid`
+
+Rules:
+
+* Valid if reward + successful + valid transaction
+* Invalid if mismatch in reward, status, or transaction
+
+### 6. Output Generation
+
+* Generate final report:
+
+  * `output/referral_report.csv`
+* Contains 46 rows with validation results
 
 ---
 
